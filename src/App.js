@@ -1,25 +1,31 @@
-import React from 'react';
+import React,{Fragment,useContext } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Home from './Components/Home';
+import {Router} from '@reach/router'
+import Header from './Components/Home/Header';
+import Aside from './Components/Home/Aside';
+import Registro from './Components/Registro';
+import {UserContext} from './Providers/UserProvider'
+
+
 
 function App() {
+
+   const user=useContext(UserContext)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+     
+   <Fragment>
+
+     <Header></Header>
+     <Router>
+     <Home user={user} path="/"></Home>
+     <Registro  user={user} path="/register"></Registro> 
+     </Router>
+    
+   </Fragment>
+
   );
 }
 
