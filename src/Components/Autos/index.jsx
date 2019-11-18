@@ -1,6 +1,6 @@
 import React, {Fragment,useEffect,useState} from 'react'
 import './style.css'
-import { firestore } from './../../firebase'
+import { firestore } from '../../firebase'
 import AutoList from './AutoList'
 import {Breadcrumb, CurrentRefinements , RangeInput,RefinementList,Panel,InstantSearch, SearchBox, Hits, HitsPerPage,ClearRefinements, Pagination,Menu } from 'react-instantsearch-dom';
 import algoliasearch from 'algoliasearch/lite';
@@ -48,19 +48,57 @@ const Auto= ({user})=>{
 
       <div className="col-12"> 
       <InstantSearch  searchClient={searchClient} indexName="rent">
+        <div className="row ml-2">
          <SearchBox />
-         <ClearRefinements />
+          <div className="col-2">
+          <ClearRefinements />
+        
+          </div>
+          
+        </div>
+    
+        
          <CurrentRefinements />
-         <RangeInput attribute="precio" />
-         <HitsPerPage
+        
+      <div className="row mt-2 ">
+       <div className="b col-sm-4 col-md-2 col-xl-2 col-md-2  ">
+        <h3>Marcas</h3> 
+        <RefinementList limit={2}
+        showMoreLimit={5}
+        showMore={true} attribute="marca"/>
+       </div>
+
+       <div className="b col-sm-4 col-md-2 col-xl-2 col-md-2 "> 
+        <h3>Tipo</h3> 
+        <RefinementList limit={2}
+        showMoreLimit={5}
+        showMore={true} attribute="tipo"/>
+       </div>
+       <div className= "b col-sm-4 col-md-2 col-xl-2 col-md-2 " >
+       <h3>Año</h3> 
+       <RefinementList limit={2}
+        showMoreLimit={5}
+        showMore={true} attribute="anio"/>
+       </div>
+       <div  className="b col-sm-4 col-md-2 col-xl-2 col-md-2 ">
+       <h3>Transmision</h3> 
+       <RefinementList attribute="transmision"/>
+       </div>
+
+        <div className="b col-sm-4 col-md-2 col-xl-2 col-md-2 ">
+        <h3>Precio</h3>
+          <RangeInput attribute="precio" />
+        </div>
+        <div className=" col-sm-5 col-md-4 col-xl-3 col-md-3 ">
+            <h3>Resultados por pagina</h3>
+            <HitsPerPage
         defaultRefinement={4}
         items={[{ value: 2 }, { value: 4 }, { value: 6 }, { value: 8 }]}
-      />
-       <RefinementList attribute="marca"/>
-       <RefinementList attribute="tipo"/>
-       <RefinementList attribute="anio"/>
-       <RefinementList attribute="transmision"/>
-         <Hits   hitComponent={Hit}/>
+         />
+          </div>
+
+      </div>
+         <Hits  hitComponent={Hit}/>
           
         <Pagination></Pagination>
          

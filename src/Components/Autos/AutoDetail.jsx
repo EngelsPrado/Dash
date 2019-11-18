@@ -1,5 +1,5 @@
 import React,{Fragment,useState,useEffect} from 'react'
-import { firestore } from './../../firebase'
+import { firestore } from '../../firebase'
 import AutoList from './AutoList'
 import Carousel from 'react-bootstrap/Carousel'
 
@@ -57,7 +57,7 @@ const AutoDetail=({uid,user})=>{
             {/* end  */}
             <div class="container">
               <div class="row mb-2">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
@@ -111,10 +111,7 @@ const AutoDetail=({uid,user})=>{
                         </div>
                     </div>
                     </div>
-                    <div className="col-3">
-                      {/* falta */}
-                      {/* <FormCotizar uid={uid}  ></FormCotizar> */}
-                    </div>
+                  
                 </div>
               
             </div>

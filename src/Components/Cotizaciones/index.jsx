@@ -23,52 +23,43 @@ const Cotizaciones=()=>{
     return(
         
   <Fragment>
-
+<div class="table-responsive">
  
-
-
-   
-  <div class="container">
-  
-  <div class="listWrap">
-  
-      <ul class="list">
-      
-          <li>
-              <span>ID</span>
-              <span>Email</span>
-              <span>Nombre</span>
-              <span>Telefono</span>
-              <span>Asunto</span>
-              <span></span>
-          </li>
-          {
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Correo</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Telefono</th>
+      <th scope="col">Asunto</th>
+    </tr>
+  </thead>
+  <tbody>
+    {
               coti && coti.docs.map(el=>{
                   console.log(el.data())
-                 return <li>
-              <span >{el.data().uid}</span>
-              <span>{el.data().email}</span>
-              <span>{el.data().nombre}</span>
-              <span>{el.data().tel}</span>
-              <span><span class="label label-warning">{el.data().asunto}</span></span>
-              <span>
+                 return( 
+                 <tr>
+              <th scope="row">{el.data().uid}</th>
+              <td>{el.data().email}</td>
+              <td>{el.data().nombre}</td>
+              <td>{el.data().tel}</td>
+              <td><span class="label label-warning">{el.data().asunto}</span></td>
+              <td>
                   <div class="btn-group btn-group-xs" role="group" aria-label="...">
                       <Link type="button" to={`/editar/${el.data().uid}`} class="btn btn-default">Edit</Link>
                       <button type="button" class="btn btn-default" >Delete</button>
                   </div>
-              </span>
-              <span></span>
-          </li>
+              </td>
+             
+          </tr>)
               })
           }
-        
-       
-      </ul>
-  
-  </div>
-  
-  </div>
-  
+  </tbody>
+</table>
+
+</div>
     </Fragment>
       
   

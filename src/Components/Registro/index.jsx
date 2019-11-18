@@ -3,6 +3,7 @@ import Aside from '../Home/Aside'
 import { Formik } from "formik";
 import { firestore,auth,storage } from '../../firebase';
 import index from './../../Alg'
+import './style.css'
 const uuidv4 = require('uuid/v4');
 
 const uid = () => {
@@ -118,45 +119,45 @@ const Registro =({user})=>{
         setFieldValue
         /* and other goodies */
       }) => (
-        <form className="col-9" onSubmit={handleSubmit}>
+        <form className="col-12" onSubmit={handleSubmit}>
         
         <div class="row p-5">
-                <div class="col-4">
+                <div class="col-sm-4 b">
                   <label>Marca</label>
                   <input   name="marca"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.marca} type="text" class="form-control" placeholder="Marca"/>
                 </div>
-                <div class="col-4">
+                <div class="col-sm-4 b">
                 <label>Modelo</label>
                   <input  name="modelo"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.modelo} type="text" class="form-control" placeholder="Modelo"/>
                 </div>
-                <div class="col-4">
+                <div class="col-sm-4 b">
                   <label>Color</label>
                   <input  name="color"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.color} type="text" class="form-control" placeholder="Color"/>
                 </div>
-                <div class="col-4">
+                <div class="col-sm-4  b">
                 <label>Kilometraje</label>
                   <input  name="km"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.km} type="number" class="form-control" placeholder="Kilometraje"/>
                 </div>
-                <div class="col-4">
+                <div class="col-sm-4 b">
                 <label>Combustible</label>
                   <input  name="cb"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.cb} type="text" class="form-control" placeholder="Combustible"/>
                 </div>
-                <div class="col-4">
+                <div class="col-sm-4 b">
                 <label for="inputState">Transmision</label>
                   <select name="tras"  onChange={handleChange}
               onBlur={handleBlur}
@@ -166,7 +167,7 @@ const Registro =({user})=>{
                     <option value="automatica">Automatica</option>
                   </select>
                 </div>
-                <div class="col-4">
+                <div class="col-sm-4 b">
                 <label>Stock</label>
                   <input    name="stock"
               onChange={handleChange}
@@ -175,7 +176,7 @@ const Registro =({user})=>{
                 </div>
 
 
-                <div class="col-4">
+                <div class="col-sm-4 b">
                 <label for="inputState">Tipo</label>
                   <select name="tipo" value={values.tipo}   onChange={handleChange}
               onBlur={handleBlur} id="inputState" class="form-control">
@@ -185,7 +186,7 @@ const Registro =({user})=>{
                   </select>
                 </div>
 
-                <div class="col-4">
+                <div class="col-sm-4 b">
                 <label for="exampleFormControlFile1">Fotos</label>
                 <input  id="file" multiple
             name="file"
@@ -196,14 +197,14 @@ const Registro =({user})=>{
                 </div>
 
 
-                <div class="col-4">
+                <div class="col-4 b">
                 <label>Precio</label>
                   <input  name="precio"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.precio} type="number" class="form-control" placeholder="Precio"/>
                 </div>
-                <div class="col-4">
+                <div class="col-4 b">
                 <label>Año</label>
                   <input  name="anio"
               onChange={handleChange}

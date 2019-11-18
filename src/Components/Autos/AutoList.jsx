@@ -1,5 +1,5 @@
 import React,{Fragment,useState,useEffect} from 'react'
-import { firestore } from './../../firebase'
+import { firestore } from '../../firebase'
 import {Link} from '@reach/router'
 
 
@@ -61,12 +61,12 @@ const AutoList=({dato,user})=>{
 
     
         
-                <div class="row text-center ml-5">
+                <div class="text-center ml-5">
                     
                     
                     
-                    <div class=" box border py-4">
-                    <i onClick={handleClickPlusMinus} class={Boton}></i>
+                    <div class="col-12 box border ">
+                   { user? <i onClick={handleClickPlusMinus} class={Boton}></i>:null}
                         <div class="box-carimage">
                             <img src="https://img0.gaadicdn.com/images/car-images/265x110/Mahindra/Mahindra-XUV500-2018/6334/047.jpg" alt=""/>
                         </div>

@@ -66,7 +66,7 @@ const Editar =({uid,user})=>{
               
             {/*  */}
            
-        <form className="col-9" >
+        <form className="col-12" >
         
         <div class="row p-5">
                 <div class="col-4">

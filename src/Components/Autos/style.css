@@ -1,6 +1,7 @@
-.box:hover { box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);}
+
 
 .ais-Hits-item, .ais-InfiniteHits-item, .ais-InfiniteResults-item, .ais-Results-item{
+    width: 30%;
     margin-top: none; 
      margin-left: none; 
      padding: none; 
@@ -9,15 +10,6 @@
    box-shadow:none;
 }
 
-.ais-Hits-list {
-
-
-    display: flex;
-    flex-flow: row wrap;
-    justify-content:space-between;
-    margin-top: 0;
-    margin-bottom: 1rem;
-}
 
 .ais-Pagination{
     justify-content: center;
@@ -34,3 +26,53 @@
 
 img {width:100%;}
 h5 {font-size:16px;}
+
+
+
+
+@media (max-width: 768px){
+
+    .ais-Hits-item, .ais-InfiniteHits-item, .ais-InfiniteResults-item, .ais-Results-item {
+      width: 40%;
+   
+    }
+
+
+}
+
+@media (max-width: 564px){
+
+
+
+    .b{
+        width: 40%;
+    }
+
+
+}
+
+@media (max-width: 420px){
+
+    .ais-Hits-item, .ais-InfiniteHits-item, .ais-InfiniteResults-item, .ais-Results-item {
+     width: 80%;
+    }
+
+    .carousel{
+        height: 42vh;
+    } 
+ }
+ 
+@media (max-width: 375px){
+
+    .ais-Hits-item, .ais-InfiniteHits-item, .ais-InfiniteResults-item, .ais-Results-item {
+      width: 80%;
+   
+    }
+
+    .b{
+        width: 40%;
+    }
+
+
+}
+
