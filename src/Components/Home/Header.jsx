@@ -10,17 +10,28 @@ const Header=({user})=>{
    return (
 
      <Fragment>
-                  
+      <ul class="nav nav-tabs p-5">
+  <li class="nav-item">
+    <Link class="nav-link active" to="/">Home</Link>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Administrador</a>
+    <div class="dropdown-menu">
+      <Link class="dropdown-item" to={`/profile/${user&&user.uid}`}>Mi perfil</Link>
+      <Link class="dropdown-item" to="/register">Registrar Auto</Link>
+      <Link class="dropdown-item" to="/cotizaciones">Ver cotizaciones</Link>
+      <Link class="dropdown-item" to="/autos">Ver autos registrados</Link>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Cerrar sesion</a>
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+ 
+</ul>      
 
-          <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src={user&&user.photoURL} class="rounded-circle w-10 perfil" alt="User Image"/>
-          <span class="hidden-xs">Mi cuenta</span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <Link class="dropdown-item" to={`/profile/${user&&user.uid}`}>Mi perfil</Link>
-          <Link class="dropdown-item" to="/carrito">Carrito</Link>
-          <button onClick={signOut}  class="dropdown-item" >Cerrar Sesion</button>
-          </div>
+
 
      </Fragment>
 

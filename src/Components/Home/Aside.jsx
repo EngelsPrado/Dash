@@ -10,7 +10,7 @@ const Aside=({user})=>{
        <Fragment>
              
       <div class="main">
-        <aside>
+    
           <div class="sidebar left ">
             <div class="user-panel">
               <div class="pull-left image">
@@ -46,7 +46,7 @@ const Aside=({user})=>{
           <li> <a href="#" data-toggle="collapse" data-target="#tables" class="collapsed active" ><i class="fa fa-table"></i> <span class="nav-label">Tables</span><span class="fa fa-chevron-left pull-right"></span></a>
           <ul  class="sub-menu collapse" id="tables" >
             <li><Link to="/autos"> Lista de Carros</Link></li>
-            <li><a href=""> Data Tables</a></li>
+            <li><Link to="/cotizaciones"> Ver Cotizaciones</Link></li>
             <li><a href=""> Foo Tables</a></li>
             <li><a href=""> jqGrid</a></li>
           </ul>
@@ -64,7 +64,7 @@ const Aside=({user})=>{
       </li>
     </ul>
     </div>
-    </aside>
+
 
 
      

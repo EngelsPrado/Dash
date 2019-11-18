@@ -1,6 +1,6 @@
 import React,{Fragment,useContext } from 'react';
 import logo from './logo.svg';
-import './App.css';
+
 import Home from './Components/Home';
 import {Router} from '@reach/router'
 import Header from './Components/Home/Header';
@@ -10,6 +10,8 @@ import {UserContext} from './Providers/UserProvider'
 import CarList from './Components/Carros/CarList';
 import Profile from './Components/Profile/Profile';
 import Editar from './Components/EditarCarros';
+import Cotizaciones from './Components/Cotizaciones';
+import AutoDetail from './Components/Autos/AutoDetail';
 
 
 
@@ -22,13 +24,15 @@ function App() {
    <Fragment>
 
      <Header user={user}></Header>
-     <Aside user={user}></Aside>
+     {/* <Aside user={user}></Aside> */}
      <Router>
      <Home user={user} path="/"></Home>
      <Registro  user={user} path="/register"></Registro> 
      <CarList  user={user} path="/autos" ></CarList>
      <Profile path="/profile/:uid"  ></Profile>
      <Editar user={user} path="/editar/:uid" ></Editar>
+     <Cotizaciones path="/cotizaciones" ></Cotizaciones>
+     <AutoDetail path="/autos/:uid" user={user}></AutoDetail>
      </Router>
     
    </Fragment>

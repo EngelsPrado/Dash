@@ -1,9 +1,10 @@
 import React,{Fragment,useContext} from 'react'
-import './style.css'
+
 import Login from '../../InicioSesion/Login'
 import {UserContext} from './../../Providers/UserProvider'
 import {Link} from '@reach/router'
 import Aside from './Aside'
+import Auto from '../Autos'
 const Home=({user})=>{
 
   console.log(user)
@@ -16,7 +17,7 @@ const Home=({user})=>{
 
           user ?<Fragment>
             
-     
+            <Auto user={user}></Auto>
             
           </Fragment>:<Login></Login>
 
