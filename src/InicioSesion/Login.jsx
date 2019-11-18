@@ -1,9 +1,25 @@
-import React,{Fragment} from 'react'
+import React,{Fragment,useState} from 'react'
 import './style.css'
 import { signInWithGoogle,signInWithFacebook } from './../firebase';
+import { auth } from 'firebase';
 
 const Login= ()=>{
 
+    const [email,setEmail]=useState('')
+    const [pass,setPass]=useState('')
+
+    const sesion=(e)=>{
+
+      e.preventDefault()
+      
+        auth().signInWithEmailAndPassword(email, pass).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+      });
+
+    }
 
      return (
       <Fragment>
@@ -15,19 +31,19 @@ const Login= ()=>{
                 <div class="logo ">
                     <img src="/img/logo.png" alt="" className="logo_imagen"/>
                 </div>
-                <form class="form-signin" action="#">
+                <form class="form-signin" >
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Correo" required autofocus />
+                    <input  value={email} onChange={(e)=>setEmail(e.target.value)}  type="text" class="form-control" placeholder="Correo" required autofocus />
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Contraseña" required />
+                    <input value={pass} onChange={(e)=>setPass(e.target.value)}  type="password" class="form-control" placeholder="Contraseña" required />
                 </div>
                 <label class="checkbox centrar">
                     <input type="checkbox" value="remember-me" />
                     Mantenme conectado
                 </label>
-                <button class="btn-light action-button btn inicio" type="submit">
-                    Registrarme</button>
+                <button class="btn-light action-button btn inicio" onClick={sesion} type="submit">
+                    Iniciar Sesion</button>
                 </form>
                 <a class="forgotLnk " href="http://www.jquery2dotnet.com">No puedo acceder a mi cuenta</a>
                 <div class="or-box">

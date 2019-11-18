@@ -6,7 +6,7 @@ import {Link} from '@reach/router'
 import Aside from './Aside'
 const Home=({user})=>{
 
-  
+  console.log(user)
 
   return (
 
@@ -16,10 +16,9 @@ const Home=({user})=>{
 
           user ?<Fragment>
             
-          <Aside></Aside>
+     
             
-            
-        </Fragment>:<Login></Login>
+          </Fragment>:<Login></Login>
 
 
       } 

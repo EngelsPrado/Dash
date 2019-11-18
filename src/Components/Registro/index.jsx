@@ -24,6 +24,7 @@ const Registro =({user})=>{
          const auto={
           uid:id,
           marca:values.marca,
+          modelo:values.modelo,
           color:values.color,
           km:values.km,
           combustible:values.cb,
@@ -89,7 +90,7 @@ const Registro =({user})=>{
 
                <div className="row">
  
-               <Aside></Aside>
+              
             {/*  */}
             <Formik
       initialValues={{  marca: "", modelo: "", color: "" ,km:"",cb:"",tras:"",stock:"",tipo:"",precio:"",file:null,anio:"" }}

@@ -2,9 +2,9 @@ import React,{Fragment} from 'react'
 import {Link} from '@reach/router'
 
 
-const Aside=()=>{
+const Aside=({user})=>{
 
-
+   console.log(user)
 
    return (
        <Fragment>
@@ -14,10 +14,10 @@ const Aside=()=>{
           <div class="sidebar left ">
             <div class="user-panel">
               <div class="pull-left image">
-                <img src="http://via.placeholder.com/160x160" class="rounded-circle" alt="User Image"/>
+                <img src={user&&user.photoURL} class="rounded-circle" alt="User Image"/>
               </div>
               <div class="pull-left info">
-                <p>bootstrap develop</p>
+               <p>{user&&user.displayName}</p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
               </div>
             </div>
@@ -45,7 +45,7 @@ const Aside=()=>{
           <li> <a href="#"><i class="fa fa-laptop"></i> <span class="nav-label">Grid options</span></a> </li>
           <li> <a href="#" data-toggle="collapse" data-target="#tables" class="collapsed active" ><i class="fa fa-table"></i> <span class="nav-label">Tables</span><span class="fa fa-chevron-left pull-right"></span></a>
           <ul  class="sub-menu collapse" id="tables" >
-            <li><a href=""> Static Tables</a></li>
+            <li><Link to="/autos"> Lista de Carros</Link></li>
             <li><a href=""> Data Tables</a></li>
             <li><a href=""> Foo Tables</a></li>
             <li><a href=""> jqGrid</a></li>

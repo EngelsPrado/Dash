@@ -23,6 +23,7 @@ export const provider = new firebase.auth.GoogleAuthProvider();
 export const fbprovider = new firebase.auth.FacebookAuthProvider();
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
 export const signInWithFacebook = () => auth.signInWithPopup(fbprovider);
+
 export const signOut = () => auth.signOut();
 
 

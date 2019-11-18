@@ -2,7 +2,7 @@ import React, { Fragment, useContext,useEffect,useState } from 'react'
 import { Redirect } from '@reach/router'
 import './style.css'
 import { UserContext } from './../../Providers/UserProvider'
-import Login from './../InicioSesion/Login'
+import Login from './../../InicioSesion/Login'
 
 import Presentation from './components/Presentation'
 import Footer from './components/Footer'
