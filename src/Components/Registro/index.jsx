@@ -5,6 +5,52 @@ import { firestore,auth,storage } from '../../firebase';
 import index from './../../Alg'
 import './style.css'
 import Login from '../../InicioSesion/Login';
+import * as Yup from 'yup';
+
+
+const SignupSchema = Yup.object().shape({
+  marca: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required'),
+    modelo: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required'),
+    color: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required'),
+    km: Yup.number()
+    .min(0, 'Too Short!')
+    .max(1000000, 'Too Long!')
+    .required('Required'),
+    precio: Yup.number()
+    .min(1, 'Too Short!')
+    .max(1000000, 'Too Long!')
+    .required('Required'),
+    stock: Yup.number()
+    .min(1, 'Too Short!')
+    .max(1000, 'Too Long!')
+    .required('Required'),
+    cb: Yup.string()
+    .min(1, 'Too Short!')
+    .max(1000, 'Too Long!')
+    .required('Required'),
+    precio: Yup.number()
+    .min(1, 'Too Short!')
+    .max(1000000, 'Too Long!')
+    .required('Required'),
+    anio: Yup.number()
+    .min(1997, 'Too Short!')
+    .max(2019, 'Too Long!')
+    .required('Required'),
+
+});
+
+
+
+
 const uuidv4 = require('uuid/v4');
 
 const uid = () => {
@@ -96,17 +142,11 @@ const Registro =({user})=>{
             {/*  */}
             <Formik
       initialValues={{  marca: "", modelo: "", color: "" ,km:"",cb:"",tras:"manual",stock:"",tipo:"usado",precio:"",file:null,anio:"" }}
-      validate={values => {
-        let errors = {};
-        if (!values.marca) {
-          errors.email = "Required";
-        }
-        return errors;
-      }}
-      onSubmit={(values, { setSubmitting }) => {
+      validationSchema={SignupSchema}
+      onSubmit={(values, { setSubmitting,resetForm }) => {
         console.log(values);
          handleSubmit(values);
-   
+         resetForm()
         alert("Registrado con exito");
         setSubmitting(false);
       }}
@@ -131,35 +171,58 @@ const Registro =({user})=>{
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.marca} type="text" class="form-control" placeholder="Marca"/>
+                 {errors.marca && touched.marca ? (
+            <div>{errors.marca}</div>
+          ) : null}
                 </div>
+               
                 <div class="col-sm-4 b">
                 <label>Modelo</label>
                   <input  name="modelo"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.modelo} type="text" class="form-control" placeholder="Modelo"/>
+               {errors.modelo && touched.modelo ? (
+            <div>{errors.modelo}</div>
+          ) : null}
                 </div>
+
+
                 <div class="col-sm-4 b">
                   <label>Color</label>
                   <input  name="color"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.color} type="text" class="form-control" placeholder="Color"/>
+               {errors.color && touched.color ? (
+            <div>{errors.color}</div>
+          ) : null}
                 </div>
+
+
                 <div class="col-sm-4  b">
                 <label>Kilometraje</label>
                   <input  name="km"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.km} type="number" class="form-control" placeholder="Kilometraje"/>
+               {errors.km && touched.km ? (
+            <div>{errors.km}</div>
+          ) : null}
                 </div>
+
                 <div class="col-sm-4 b">
                 <label>Combustible</label>
                   <input  name="cb"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.cb} type="text" class="form-control" placeholder="Combustible"/>
+               {errors.cb && touched.cb ? (
+            <div>{errors.cb}</div>
+          ) : null}
                 </div>
+
+
                 <div class="col-sm-4 b">
                 <label for="inputState">Transmision</label>
                   <select name="tras"  onChange={handleChange}
@@ -170,12 +233,16 @@ const Registro =({user})=>{
                     <option value="automatica">Automatica</option>
                   </select>
                 </div>
+
                 <div class="col-sm-4 b">
                 <label>Stock</label>
                   <input    name="stock"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.stock} type="number" class="form-control" placeholder="Stock"/>
+               {errors.stock && touched.stock ? (
+            <div>{errors.stock}</div>
+          ) : null}
                 </div>
 
 
@@ -191,7 +258,7 @@ const Registro =({user})=>{
 
                 <div class="col-sm-4 b">
                 <label for="exampleFormControlFile1">Fotos</label>
-                <input  id="file" multiple
+                <input  id="file" multiple required
             name="file"
             type="file"
             onChange={event => {
@@ -206,13 +273,21 @@ const Registro =({user})=>{
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.precio} type="number" class="form-control" placeholder="Precio"/>
+               {errors.precio && touched.precio ? (
+            <div>{errors.precio}</div>
+          ) : null}
+
                 </div>
+
                 <div class="col-4 b">
                 <label>Año</label>
                   <input  name="anio"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.anio} type="number" class="form-control" placeholder="Año"/>
+               {errors.anio && touched.anio ? (
+            <div>{errors.anio}</div>
+          ) : null}
                 </div>
 
                
