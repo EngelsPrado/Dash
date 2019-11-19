@@ -68,7 +68,7 @@ const AutoList=({dato,user})=>{
                     <div class="col-12 box border ">
                    { user? <i onClick={handleClickPlusMinus} class={Boton}></i>:null}
                         <div class="box-carimage">
-                            <img src="https://img0.gaadicdn.com/images/car-images/265x110/Mahindra/Mahindra-XUV500-2018/6334/047.jpg" alt=""/>
+                            <img src={dato.photoURL[0]} alt=""/>
                         </div>
                         <div class="box-cartitle">
                         <h4> {dato.marca}</h4>
