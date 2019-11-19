@@ -12,6 +12,7 @@ import Profile from './Components/Profile/Profile';
 import Editar from './Components/EditarCarros';
 import Cotizaciones from './Components/Cotizaciones';
 import AutoDetail from './Components/Autos/AutoDetail';
+import NotFound from './pages/404';
 
 
 
@@ -33,6 +34,7 @@ function App() {
      <Editar user={user} path="/editar/:uid" ></Editar>
      <Cotizaciones user={user} path="/cotizaciones" ></Cotizaciones>
      <AutoDetail path="/autos/:uid" user={user}></AutoDetail>
+     <NotFound  default ></NotFound>
      </Router>
     
    </Fragment>

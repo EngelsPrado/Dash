@@ -1,0 +1,45 @@
+.Error_Image {
+    width: 50%;
+    min-width: 200px;
+}
+.Error_Text {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 40px;
+}
+
+.text-center{
+    margin-top: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.text-error{
+    color: #36b2d0;
+    margin-top: 25px;
+}
+.text-nf{
+    color: #36b2d0;
+    margin-top: 10px;
+}
+   
+.btn-button{
+    border: unset;
+    background-color: #5edfff !important;
+    border-radius: 10px !important;
+    border-color: #5edfff !important;
+}
+
+@media screen and (min-width: 765px){
+    .text-center{
+        padding-left: 40px;
+        padding-right: 40px;
+        display: flex;
+        /* justify-content: center; */
+    }
+
+    .Error_Image{
+        width: 638px;
+        min-width: 638px;
+        
+    }
+}
