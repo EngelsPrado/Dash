@@ -29,9 +29,9 @@ function App() {
      <Home user={user} path="/"></Home>
      <Registro  user={user} path="/register"></Registro> 
      <CarList  user={user} path="/autos" ></CarList>
-     <Profile path="/profile/:uid"  ></Profile>
+     <Profile path="/profile/:uid" user={user} ></Profile>
      <Editar user={user} path="/editar/:uid" ></Editar>
-     <Cotizaciones path="/cotizaciones" ></Cotizaciones>
+     <Cotizaciones user={user} path="/cotizaciones" ></Cotizaciones>
      <AutoDetail path="/autos/:uid" user={user}></AutoDetail>
      </Router>
     

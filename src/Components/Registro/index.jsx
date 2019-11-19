@@ -4,6 +4,7 @@ import { Formik } from "formik";
 import { firestore,auth,storage } from '../../firebase';
 import index from './../../Alg'
 import './style.css'
+import Login from '../../InicioSesion/Login';
 const uuidv4 = require('uuid/v4');
 
 const uid = () => {
@@ -89,7 +90,7 @@ const Registro =({user})=>{
 
         <Fragment>
 
-               <div className="row">
+              { user? <div className="row">
  
               
             {/*  */}
@@ -225,7 +226,7 @@ const Registro =({user})=>{
     </Formik>
 
 
-               </div>
+               </div>:<Login></Login>}
 
         </Fragment>
 

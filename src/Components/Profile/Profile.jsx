@@ -12,7 +12,7 @@ import './style.css'
 import { firestore } from './../../firebase'
 
 
-const Profile = ({uid}) => {
+const Profile = ({uid,user}) => {
  
 
     const [perfil,setPerfil]=useState(null)
@@ -42,7 +42,7 @@ const Profile = ({uid}) => {
     return (
         <Fragment>
             {
-                !perfil ? <Login></Login> :
+                !user ? <Login></Login> :
 
                     <Fragment>
                         <div class="main-content">
@@ -51,14 +51,14 @@ const Profile = ({uid}) => {
                                 userName={perfil.displayName} /> */}
 
                             <Presentation
-                                fullName={perfil.displayName}
+                                fullName={user.displayName}
                             />
 
                             <div class="container-fluid mt--7">
                                 <div class="row">
 
-                                    <AsideCard uid={uid} photo={perfil.photoURL} name={perfil.displayName} />
-                                    <MyAccount perfil={perfil}/>
+                                    <AsideCard uid={uid} photo={user.photoURL} name={user.displayName} />
+                                    <MyAccount perfil={user}/>
                                 </div>
                             </div>
 

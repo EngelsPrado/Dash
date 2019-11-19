@@ -1,8 +1,9 @@
 import React,{Fragment,useEffect,useState} from 'react'
 import { firestore } from '../../firebase';
 import {Link} from '@reach/router'
+import Login from '../../InicioSesion/Login';
 
-const Cotizaciones=()=>{
+const Cotizaciones=({user})=>{
 
 
     var [coti,setCoti]=useState(null)
@@ -22,7 +23,7 @@ const Cotizaciones=()=>{
 
     return(
         
-  <Fragment>
+  <Fragment>{ user?
 <div class="table-responsive">
  
 <table class="table">
@@ -59,7 +60,7 @@ const Cotizaciones=()=>{
   </tbody>
 </table>
 
-</div>
+</div>:<Login></Login>}
     </Fragment>
       
   
