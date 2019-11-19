@@ -146,9 +146,10 @@ const Registro =({user})=>{
       onSubmit={(values, { setSubmitting,resetForm }) => {
         console.log(values);
          handleSubmit(values);
-         resetForm()
+         
         alert("Registrado con exito");
         setSubmitting(false);
+        resetForm()
       }}
     >
       {({

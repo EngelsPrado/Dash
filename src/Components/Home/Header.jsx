@@ -27,12 +27,14 @@ const Header=({user})=>{
      <button class="dropdown-item" onClick={signOut}>Cerrar sesion</button>
    </div>
  </li>:null
-
+  
  }
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
  
+  {user? <li class="nav-item">
+     <Link class="nav-link" to={`/profile/${user.uid}`}>Hola, {user.displayName}</Link>
+  </li>:null }
+
+  
 </ul>      
 
 

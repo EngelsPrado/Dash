@@ -74,10 +74,10 @@ const AutoList=({dato,user})=>{
                         <h4> {dato.marca}</h4>
                         </div>
                         <div class="box-carprice">
-                        <h6><i class="fa fa-inr"></i>{dato.precio}</h6>
+                        <h4><i class="fas fa-dollar-sign"></i>{dato.precio}</h4>
                         </div>
                         <div class="box-date pb-3">
-                            <small>Launch Date: {dato.anio} </small>
+                            <small>Año: {dato.anio} </small>
                             
                         </div>
                         <Link to={`/autos/${dato.uid}`} class="btn btn-outline-danger"> Ver mas detalles</Link>

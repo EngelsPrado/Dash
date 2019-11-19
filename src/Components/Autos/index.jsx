@@ -44,7 +44,7 @@ const Auto= ({user})=>{
 
    <Fragment>
 	
-    <div className="row">
+    <div className="row ml-4">
 
       <div className="col-12"> 
       <InstantSearch  searchClient={searchClient} indexName="rent">
