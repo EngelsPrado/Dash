@@ -296,7 +296,7 @@ const Registro =({user})=>{
 
 
               </div>
-              <button class="btn btn-success"  disabled={isSubmitting} type="submit" >
+              <button class="btn btn-success ml-5"  disabled={isSubmitting} type="submit" >
                 Submit
                 </button>
         </form>
