@@ -154,7 +154,7 @@ const Editar =({uid,user})=>{
             
 
               </div>
-              <button class="btn btn-success" onClick={editar} type="submit" >
+              <button class="btn btn-success ml-5" onClick={editar} type="submit" >
                 Submit
                 </button>
         </form>

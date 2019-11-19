@@ -58,7 +58,7 @@ const CarList=({user})=>{
        <th scope="col">Marca</th>
        <th scope="col">Modelo</th>
        <th scope="col">Precio</th>
-    
+        <th scope="col">Stock</th> 
      </tr>
    </thead>
    <tbody>
@@ -71,10 +71,12 @@ const CarList=({user})=>{
                <td>{el.data().marca}</td>
                <td>{el.data().modelo}</td>
                <td>{el.data().precio}</td>
+               <td>{el.data().stock}</td>
                <td><span class="label label-warning">{el.data().asunto}</span></td>
                <td>
                    <div class="btn-group btn-group-xs" role="group" aria-label="...">
                        <Link type="button" to={`/editar/${el.data().uid}`} class="btn btn-default">Edit</Link>
+                       <Link type="button" to={`/autos/${el.data().uid}`} class="btn btn-default">Ver auto</Link>
                        <button type="button" onClick={()=>borrar(el.data().uid)} class="btn btn-default" >Delete</button>
                    </div>
                </td>
