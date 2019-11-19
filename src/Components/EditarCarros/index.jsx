@@ -10,6 +10,7 @@ const Editar =({uid,user})=>{
     
     const [carro,setCarro]=useState(null)
     const [precio,setPrecio]=useState(null)
+    const [stock,setStock]=useState(null)
     const [redirect,setD]=useState(false)
     useEffect(()=>{
 
@@ -20,7 +21,7 @@ const Editar =({uid,user})=>{
            console.log(dato.data())
            setCarro(dato)
            setPrecio(dato.data().precio)
-            
+           setStock(dato.data().stock) 
         } 
        getDatos()
        
@@ -33,12 +34,13 @@ const Editar =({uid,user})=>{
         console.log(precio)
      
         firestore.collection("autos").doc(uid).update({
-         precio
+         precio,
+         stock
         })
 
  
     
-            index.partialUpdateObject({precio,objectID:uid}, (err, content) => {
+            index.partialUpdateObject({precio,stock,objectID:uid}, (err, content) => {
               if (err) throw err;
               
               console.log(content);
@@ -71,42 +73,42 @@ const Editar =({uid,user})=>{
         <div class="row p-5">
                 <div class="col-4">
                   <label>Marca</label>
-                  <input   name="marca"
+                  <input  disabled  name="marca"
             //   onChange={handleChange}
      
               value={carro&&carro.data().marca} type="text" class="form-control" placeholder="Marca"/>
                 </div>
                 <div class="col-4">
                 <label>Modelo</label>
-                  <input  name="modelo"
+                  <input   disabled name="modelo"
             //   onChange={handleChange}
            
               value={carro&&carro.data().modelo} type="text" class="form-control" placeholder="Modelo"/>
                 </div>
                 <div class="col-4">
                   <label>Color</label>
-                  <input  name="color"
+                  <input  disabled  name="color"
             //   onChange={handleChange}
          
               value={carro&&carro.data().color} type="text" class="form-control" placeholder="Color"/>
                 </div>
                 <div class="col-4">
                 <label>Kilometraje</label>
-                  <input  name="km"
+                  <input  disabled  name="km"
             //   onChange={handleChange}
            
               value={carro&&carro.data().km} type="number" class="form-control" placeholder="Kilometraje"/>
                 </div>
                 <div class="col-4">
                 <label>Combustible</label>
-                  <input  name="cb"
+                  <input  disabled name="cb"
             //   onChange={handleChange}
           
               value={carro&&carro.data().combustible} type="text" class="form-control" placeholder="Combustible"/>
                 </div>
                 <div class="col-4">
                 <label for="inputState">Transmision</label>
-                  <select name="tras"  
+                  <select  disabled name="tras"  
         
               value={carro&&carro.data().transmision} id="inputState" class="form-control">
                 
@@ -119,13 +121,13 @@ const Editar =({uid,user})=>{
                   <input    name="stock"
             //   onChange={handleChange}
      
-              value={carro&&carro.data().stock} type="number" class="form-control" placeholder="Stock"/>
+            value={stock} onChange={(e)=>setStock(e.target.value)}type="number" class="form-control" placeholder="Stock"/>
                 </div>
 
 
                 <div class="col-4">
                 <label for="inputState">Tipo</label>
-                  <select name="tipo" value={carro&&carro.data().tipo}  // onChange={handleChange}
+                  <select  disabled name="tipo" value={carro&&carro.data().tipo}  // onChange={handleChange}
            id="inputState" class="form-control">
                 
                     <option value="usado">Usado</option>
@@ -143,7 +145,7 @@ const Editar =({uid,user})=>{
                 </div>
                 <div class="col-4">
                 <label>Año</label>
-                  <input  name="anio"
+                  <input  disabled name="anio"
             //   onChange={handleChange}
        
               value={carro&&carro.data().anio} type="number" class="form-control" placeholder="Año"/>

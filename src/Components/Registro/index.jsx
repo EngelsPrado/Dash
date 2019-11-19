@@ -95,7 +95,7 @@ const Registro =({user})=>{
               
             {/*  */}
             <Formik
-      initialValues={{  marca: "", modelo: "", color: "" ,km:"",cb:"",tras:"",stock:"",tipo:"",precio:"",file:null,anio:"" }}
+      initialValues={{  marca: "", modelo: "", color: "" ,km:"",cb:"",tras:"manual",stock:"",tipo:"usado",precio:"",file:null,anio:"" }}
       validate={values => {
         let errors = {};
         if (!values.marca) {
@@ -105,8 +105,10 @@ const Registro =({user})=>{
       }}
       onSubmit={(values, { setSubmitting }) => {
         console.log(values);
-        handleSubmit(values);
-        setSubmitting();
+         handleSubmit(values);
+   
+        alert("Registrado con exito");
+        setSubmitting(false);
       }}
     >
       {({
@@ -164,7 +166,7 @@ const Registro =({user})=>{
               onBlur={handleBlur}
               value={values.tras} id="inputState" class="form-control">
                 
-                    <option value="manual">Manual</option>
+                    <option selected value="manual">Manual</option>
                     <option value="automatica">Automatica</option>
                   </select>
                 </div>
@@ -182,7 +184,7 @@ const Registro =({user})=>{
                   <select name="tipo" value={values.tipo}   onChange={handleChange}
               onBlur={handleBlur} id="inputState" class="form-control">
                 
-                    <option value="usado">Usado</option>
+                    <option selected value="usado">Usado</option>
                     <option value="nuevo" >Nuevo</option>
                   </select>
                 </div>
@@ -218,7 +220,7 @@ const Registro =({user})=>{
 
 
               </div>
-              <button class="btn btn-success" type="submit" >
+              <button class="btn btn-success"  disabled={isSubmitting} type="submit" >
                 Submit
                 </button>
         </form>

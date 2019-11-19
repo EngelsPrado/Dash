@@ -4,6 +4,7 @@ import Aside from '../Home/Aside'
 import { firestore } from '../../firebase'
 import {Link} from '@reach/router'
 import Login from '../../InicioSesion/Login'
+import index from '../../Alg'
 
 
 
@@ -12,14 +13,31 @@ const CarList=({user})=>{
 
   var [carros,setCarros]=useState(null)
 
+
+   const borrar=(uid)=>{
+
+
+     firestore.collection("autos").doc(uid).delete().then(alert("Borrado con exito"))
+    
+       index.deleteObject(uid, (err, content) => {
+      if (err) throw err;
+    
+      console.log(content);
+    });
+      
+   }
+
   useEffect(()=>{
       async function getDatos(){
         let datos 
        
-       datos=await firestore.collection("autos").get()
+       datos=await firestore.collection("autos").onSnapshot(el=>{
+
+        console.log(el)
+        setCarros(el)
+       })
          
-       console.log(datos)
-       setCarros(datos)
+       
       }
 
       getDatos()
@@ -57,7 +75,7 @@ const CarList=({user})=>{
                <td>
                    <div class="btn-group btn-group-xs" role="group" aria-label="...">
                        <Link type="button" to={`/editar/${el.data().uid}`} class="btn btn-default">Edit</Link>
-                       <button type="button" class="btn btn-default" >Delete</button>
+                       <button type="button" onClick={()=>borrar(el.data().uid)} class="btn btn-default" >Delete</button>
                    </div>
                </td>
               

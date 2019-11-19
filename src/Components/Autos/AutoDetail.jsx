@@ -33,9 +33,9 @@ const AutoDetail=({uid,user})=>{
                  
             <div class="container">
               <div class="row">
-                <div class="col-md-12">
+                <h1 class="col-md-12">
                     {auto && auto.marca}
-                </div>
+                </h1>
               </div>
             </div>
             {/* init */}<Carousel>
@@ -68,44 +68,44 @@ const AutoDetail=({uid,user})=>{
                           </div>
                                 <div class="row mb-4">
                                     <div class="col-md-3">
-                                        <h5 class="text-secondary">Combustible</h5>
-                                        <h6>{auto&&auto.combustible}</h6>
+                                        <h3 class="text-secondary">Combustible</h3>
+                                        <h4>{auto&&auto.combustible}</h4>
                                     </div>
                                     <div class="col-md-3">
-                                        <h5 class="text-secondary">KMS Recorridos</h5>
-                                        <h6>{auto&&auto.km}</h6>
+                                        <h3 class="text-secondary">KMS Recorridos</h3>
+                                        <h4>{auto&&auto.km}</h4>
                                     </div>
                                     <div class="col-md-3">
-                                        <h5 class="text-secondary">Tipo</h5>
-                                         <h6>{auto&&auto.tipo}</h6>
+                                        <h3 class="text-secondary">Tipo</h3>
+                                         <h4>{auto&&auto.tipo}</h4>
                                     </div>
                                     <div class="col-md-3">
-                                        <h5 class="text-secondary">TRANSMISSION</h5>
-                                            <h6> {auto&&auto.transmision}</h6>
+                                        <h3 class="text-secondary">TRANSMISSION</h3>
+                                            <h4> {auto&&auto.transmision}</h4>
                                     </div>
                                   </div>
                                 <div class="row mb-4">
                                     <div class="col-md-3">
-                                        <h5 class="text-secondary">Año</h5>
-                                        <h6>{auto&&auto.anio}</h6>
+                                        <h3 class="text-secondary">Año</h3>
+                                        <h4>{auto&&auto.anio}</h4>
                                     </div>
                                     <div class="col-md-3">
-                                        <h5 class="text-secondary">Stock</h5>
-                                        <h6>{auto&&auto.stock}</h6>
+                                        <h3 class="text-secondary">Stock</h3>
+                                        <h4>{auto&&auto.stock}</h4>
                                     </div>
                                     <div class="col-md-3">
-                                        <h5 class="text-secondary">COLOR</h5>
-                                        <h6>{auto&&auto.color}</h6>
+                                        <h3 class="text-secondary">COLOR</h3>
+                                        <h4>{auto&&auto.color}</h4>
                                     </div>
                                     <div class="col-md-3">
-                                        <h5 class="text-secondary">Modelo</h5>
-                                        <h6>{auto&&auto.modelo}</h6>
+                                        <h3 class="text-secondary">Modelo</h3>
+                                        <h4>{auto&&auto.modelo}</h4>
                                     </div>
                                   </div>
                                 <div class="row mb-4">
                                     <div class="col-md-12">
-                                        <h5 class="text-secondary">Marca</h5>
-                                        <h6>{auto&&auto.marca}</h6>
+                                        <h3 class="text-secondary">Marca</h3>
+                                        <h4>{auto&&auto.marca}</h4>
                                     </div>
                                   </div>
                         </div>

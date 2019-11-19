@@ -50,7 +50,7 @@ const Cotizaciones=({user})=>{
               <td>
                   <div class="btn-group btn-group-xs" role="group" aria-label="...">
                       <Link type="button" to={`/autos/${el.data().uid}`} class="btn btn-default">Ver auto</Link>
-                      <button type="button" class="btn btn-default" >Delete</button>
+                      
                   </div>
               </td>
              
