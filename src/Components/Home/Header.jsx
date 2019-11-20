@@ -23,6 +23,7 @@ const Header=({user})=>{
      <Link class="dropdown-item" to="/register">Registrar Auto</Link>
      <Link class="dropdown-item" to="/cotizaciones">Ver cotizaciones</Link>
      <Link class="dropdown-item" to="/autos">Ver autos registrados</Link>
+     <Link class="dropdown-item" to="/comprar">Ver ofertas de compras</Link>
      <div class="dropdown-divider"></div>
      <button class="dropdown-item" onClick={signOut}>Cerrar sesion</button>
    </div>
