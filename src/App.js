@@ -13,6 +13,8 @@ import Editar from './Components/EditarCarros';
 import Cotizaciones from './Components/Cotizaciones';
 import AutoDetail from './Components/Autos/AutoDetail';
 import NotFound from './pages/404';
+import Revisar from './Components/ComprarAuto/Revisar';
+import Comprar from './Components/ComprarAuto';
 
 
 
@@ -32,8 +34,10 @@ function App() {
      <CarList  user={user} path="/autos" ></CarList>
      <Profile path="/profile/:uid" user={user} ></Profile>
      <Editar user={user} path="/editar/:uid" ></Editar>
+     <Revisar user={user} path="/revisar/:uid" ></Revisar>
      <Cotizaciones user={user} path="/cotizaciones" ></Cotizaciones>
      <AutoDetail path="/autos/:uid" user={user}></AutoDetail>
+     <Comprar  user={user} path="/comprar" ></Comprar>
      <NotFound  default ></NotFound>
      </Router>
     

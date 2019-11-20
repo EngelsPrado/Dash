@@ -47,7 +47,8 @@ const CarList=({user})=>{
 
    const borrar=(uid)=>{
 
-
+ 
+ 
      firestore.collection("autos").doc(uid).delete().then(alert("Borrado con exito"))
     
        index.deleteObject(uid, (err, content) => {
@@ -55,6 +56,9 @@ const CarList=({user})=>{
     
       console.log(content);
     });
+
+ 
+
       
    }
 
