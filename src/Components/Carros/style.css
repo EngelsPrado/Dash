@@ -9,8 +9,12 @@
     width:none; 
    border: none; 
    box-shadow:none;
+   
 }
 
+span{
+    color: black;
+}
 
 .ais-Pagination{
     justify-content: center;

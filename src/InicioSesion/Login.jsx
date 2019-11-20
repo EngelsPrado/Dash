@@ -7,7 +7,7 @@ const Login= ()=>{
 
     const [email,setEmail]=useState('')
     const [pass,setPass]=useState('')
-
+    const [error,seterror]=useState(null)
     const sesion=(e)=>{
 
       e.preventDefault()
@@ -17,6 +17,7 @@ const Login= ()=>{
         var errorCode = error.code;
         var errorMessage = error.message;
         // ...
+        seterror(errorMessage)
       });
 
     }
@@ -46,10 +47,12 @@ const Login= ()=>{
                     Iniciar Sesion</button>
                 </form>
                
-              
-            </div>
+                {error}
+            </div> 
         </div>
+     
     </div>
+   
 </div>
 
       </Fragment>

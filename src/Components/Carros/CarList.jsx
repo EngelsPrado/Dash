@@ -23,15 +23,15 @@ const CarList=({user})=>{
       
         
       <Fragment>
-        <li scope="row">{props.hit.uid}</li>
-        <li>Marca:{props.hit.marca}</li>
-        <li>Modelo:{props.hit.modelo}</li>
-        <li>Precio{props.hit.precio}</li>
-        <li>Stock:{props.hit.stock}</li>
-        <li>Año:{props.hit.anio}</li>
+        <li scope="row"><span> ID:</span>{props.hit.uid}</li>
+        <li><span> Marca:</span>{props.hit.marca}</li>
+        <li><span> Modelo:</span>{props.hit.modelo}</li>
+        <li><span> Precio:</span>{props.hit.precio}</li>
+        <li><span> Stock:</span>{props.hit.stock}</li>
+        <li><span> Año:</span>{props.hit.anio}</li>
         <li>
             <div class="btn-group btn-group-xs" role="group" aria-label="...">
-                <Link type="button" to={`/editar/${props.hit.uid}`} class="btn btn-default">Edit</Link>
+                <Link type="button" to={`/editar/${props.hit.uid}`} class="btn btn-default">Editar</Link>
                 <Link type="button" to={`/autos/${props.hit.uid}`} class="btn btn-default">Ver auto</Link>
                 <button type="button" onClick={()=>borrar(props.hit.uid)} class="btn btn-default" >Delete</button>
             </div>
@@ -79,7 +79,9 @@ const CarList=({user})=>{
   return (
 
   <Fragment>
-
+{ user?<div className="ml-5">
+  
+   
 <InstantSearch  searchClient={searchClient} indexName="rent">
         <div className="row ml-2">
          <SearchBox />
@@ -137,6 +139,8 @@ const CarList=({user})=>{
             
          <Pagination></Pagination>
     </InstantSearch>
+  
+  </div>:<Login></Login>}
 
 
   </Fragment>
