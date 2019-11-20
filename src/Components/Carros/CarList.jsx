@@ -6,6 +6,10 @@ import {Link} from '@reach/router'
 import Login from '../../InicioSesion/Login'
 import index from '../../Alg'
 
+import {Breadcrumb, CurrentRefinements , RangeInput,RefinementList,Panel,InstantSearch, SearchBox, Hits, HitsPerPage,ClearRefinements, Pagination,Menu } from 'react-instantsearch-dom';
+import algoliasearch from 'algoliasearch/lite';
+
+const searchClient = algoliasearch('QHNRM6MI8E', 'e6a2cc55534d6411d953249c82282be6');
 
 
 const CarList=({user})=>{
@@ -13,6 +17,33 @@ const CarList=({user})=>{
 
   var [carros,setCarros]=useState(null)
 
+  const  Hit=(props)=>{
+    console.log(props.hit)
+    return (
+      
+        
+      <Fragment>
+        <li scope="row">{props.hit.uid}</li>
+        <li>Marca:{props.hit.marca}</li>
+        <li>Modelo:{props.hit.modelo}</li>
+        <li>Precio{props.hit.precio}</li>
+        <li>Stock:{props.hit.stock}</li>
+        <li>Año:{props.hit.anio}</li>
+        <li>
+            <div class="btn-group btn-group-xs" role="group" aria-label="...">
+                <Link type="button" to={`/editar/${props.hit.uid}`} class="btn btn-default">Edit</Link>
+                <Link type="button" to={`/autos/${props.hit.uid}`} class="btn btn-default">Ver auto</Link>
+                <button type="button" onClick={()=>borrar(props.hit.uid)} class="btn btn-default" >Delete</button>
+            </div>
+        </li>
+        
+   
+        </Fragment>
+
+                    
+      
+    );
+   }
 
    const borrar=(uid)=>{
 
@@ -27,7 +58,7 @@ const CarList=({user})=>{
       
    }
 
-  useEffect(()=>{
+/*  useEffect(()=>{
       async function getDatos(){
         let datos 
        
@@ -43,55 +74,69 @@ const CarList=({user})=>{
       getDatos()
   },[user])    
 
-
+*/
 
   return (
 
   <Fragment>
-{ user?
-<div class="table-responsive">
- 
- <table class="table">
-   <thead>
-     <tr>
-       <th scope="col">#</th>
-       <th scope="col">Marca</th>
-       <th scope="col">Modelo</th>
-       <th scope="col">Precio</th>
-        <th scope="col">Stock</th> 
-     </tr>
-   </thead>
-   <tbody>
-     {
-               carros && carros.docs.map(el=>{
-                   console.log(el.data())
-                  return( 
-                  <tr>
-               <th scope="row">{el.data().uid}</th>
-               <td>{el.data().marca}</td>
-               <td>{el.data().modelo}</td>
-               <td>{el.data().precio}</td>
-               <td>{el.data().stock}</td>
-               <td><span class="label label-warning">{el.data().asunto}</span></td>
-               <td>
-                   <div class="btn-group btn-group-xs" role="group" aria-label="...">
-                       <Link type="button" to={`/editar/${el.data().uid}`} class="btn btn-default">Edit</Link>
-                       <Link type="button" to={`/autos/${el.data().uid}`} class="btn btn-default">Ver auto</Link>
-                       <button type="button" onClick={()=>borrar(el.data().uid)} class="btn btn-default" >Delete</button>
-                   </div>
-               </td>
-              
-           </tr>)
-               })
-           }
-   </tbody>
- </table>
- 
- </div>
- :<Login></Login>
-}
-   
 
+<InstantSearch  searchClient={searchClient} indexName="rent">
+        <div className="row ml-2">
+         <SearchBox />
+          <div className="col-2">
+          <ClearRefinements />
+        
+          </div>
+          
+        </div>
+    
+        
+         <CurrentRefinements />
+        
+      <div className="row mt-2 ">
+       <div className="b col-sm-4 col-md-2 col-xl-2 col-md-2  ">
+        <h3>Marcas</h3> 
+        <RefinementList limit={2}
+        showMoreLimit={5}
+        showMore={true} attribute="marca"/>
+       </div>
+
+       <div className="b col-sm-4 col-md-2 col-xl-2 col-md-2 "> 
+        <h3>Tipo</h3> 
+        <RefinementList limit={2}
+        showMoreLimit={5}
+        showMore={true} attribute="tipo"/>
+       </div>
+       <div className= "b col-sm-4 col-md-2 col-xl-2 col-md-2 " >
+       <h3>Año</h3> 
+       <RefinementList limit={2}
+        showMoreLimit={5}
+        showMore={true} attribute="anio"/>
+       </div>
+       <div  className="b col-sm-4 col-md-2 col-xl-2 col-md-2 ">
+       <h3>Transmision</h3> 
+       <RefinementList attribute="transmision"/>
+       </div>
+
+        <div className="b col-sm-4 col-md-2 col-xl-2 col-md-2 ">
+        <h3>Precio</h3>
+          <RangeInput attribute="precio" />
+        </div>
+        <div className=" col-sm-5 col-md-4 col-xl-3 col-md-3 ">
+            <h3>Resultados por pagina</h3>
+            <HitsPerPage
+        defaultRefinement={4}
+        items={[{ value: 2 }, { value: 4 }, { value: 6 }, { value: 8 }]}
+         />
+          </div>
+
+      </div>
+
+    
+         <Hits  hitComponent={Hit}/>
+            
+         <Pagination></Pagination>
+    </InstantSearch>
 
 
   </Fragment>
